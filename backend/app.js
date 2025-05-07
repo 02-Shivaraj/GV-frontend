@@ -136,8 +136,11 @@ app.post('/loadinfpb1', (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Gamersville server app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Gamersville server app listening on port ${port}`)
+// })
+
+module.exports = app; 
+
 
 
