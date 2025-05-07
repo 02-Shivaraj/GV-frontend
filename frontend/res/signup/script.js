@@ -29,7 +29,7 @@ async function signup(event) {
     const password = document.getElementById('password').value;
     const name = document.getElementById('name').value;
 
-    const response = await fetch('/signup', {
+    const response = await fetch('/api/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
