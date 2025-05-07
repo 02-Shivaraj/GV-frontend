@@ -4,6 +4,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
 const port = 3000;
+const cors = require('cors');
+
+app.use(cors({
+  origin: 'https://gamers-ville.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 const { format } = require('date-fns');
 
