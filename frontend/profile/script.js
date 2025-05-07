@@ -27,7 +27,7 @@ async function infload(){
 }
 
 async function infloadpb(){ 
-    const response = await fetch('http://localhost:3000/loadinfpb', {
+    const response = await fetch('/loadinfpb', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
