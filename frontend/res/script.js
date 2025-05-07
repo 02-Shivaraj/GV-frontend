@@ -33,7 +33,7 @@ async function login(event) {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const response = await fetch('/login', {
+    const response = await fetch('https://gamers-ville-be.vercel.app/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
