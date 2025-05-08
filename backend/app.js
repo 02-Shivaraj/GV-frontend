@@ -7,7 +7,7 @@ const port = 3000;
 const cors = require('cors');
 
 app.use(cors({
-  origin: 'https://gamers-ville.vercel.app',
+  origin: 'https://gamersville.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
