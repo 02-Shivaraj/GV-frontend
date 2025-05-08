@@ -161,7 +161,7 @@ async function upd() {
 
     console.log("bp2")
 
-    const response = await fetch('http://localhost:3000/ins', {
+    const response = await fetch('https://gamersville.onrender.com/ins', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
