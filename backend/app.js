@@ -29,10 +29,22 @@ var con = mysql.createConnection({
     database: process.env.DB_NAME,
 });
 
-con.connect(function(err){
-    if (err) throw err;
-    console.log("connected");
-});
+// con.connect(function(err){
+//     if (err) throw err;
+//     console.log("connected");
+// });
+
+async function connectToDatabase() {
+    try {
+        await con.connect();
+        console.log("connected");
+    } catch (err) {
+        console.error("Connection failed", err);
+    }
+}
+
+connectToDatabase();
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
