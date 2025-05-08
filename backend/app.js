@@ -73,16 +73,34 @@ app.post('/login',(req, res) =>{
     });
 })
 
-app.post('/signup',(req, res) => {
-    console.log(req.body);
-    username = req.body.username;
-    var qry1 = `INSERT INTO users(name, username, password) VALUES('${req.body.name}','${req.body.username}','${req.body.password}')`;
-    con.query(qry1, function (err, result){
-        if(err) res.send({message:'0'});
-        console.log(result);
-        res.send({message:'1'})
-    });
-})
+// app.post('/signup',(req, res) => {
+//     console.log(req.body);
+//     username = req.body.username;
+//     var qry1 = `INSERT INTO users(name, username, password) VALUES('${req.body.name}','${req.body.username}','${req.body.password}')`;
+//     con.query(qry1, function (err, result){
+//         if(err) res.send({message:'0'});
+//         console.log(result);
+//         res.send({message:'1'})
+//     });
+// })
+
+app.post('/signup', (req, res) => {
+  console.log(req.body);
+  const { name, username, password } = req.body;
+
+  const qry1 = `INSERT INTO users(name, username, password) VALUES (?, ?, ?)`;
+
+  con.query(qry1, [name, username, password], function (err, result) {
+    if (err) {
+      console.error("Signup error:", err);
+      return res.status(500).send({ message: '0' }); // Error creating account
+    }
+
+    console.log("Signup result:", result);
+    res.send({ message: '1' }); // Successfully created
+  });
+});
+
 
 app.post('/rps',(req, res) => {
 
