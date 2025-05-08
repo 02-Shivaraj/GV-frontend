@@ -17,7 +17,7 @@ const bd = document.querySelector("body");
 
 const sgn = document.getElementById("sgn");
 sgn.addEventListener("click", () =>{
-    window.location.replace("signup/index.html")
+    window.location.replace("./res/signup/index.html")
 })
 
 function bgIter(){
@@ -47,7 +47,7 @@ async function login(event) {
 
     if(data.message == 1){
         console.log('authorized');
-        window.location.replace("../options/options.html");
+        window.location.replace("./options/options.html");
     }
     else
         alert("user not found");
