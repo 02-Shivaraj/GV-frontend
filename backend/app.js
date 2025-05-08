@@ -11,6 +11,12 @@ app.use(cors({
   credentials: true
 }));
 
+app.options('*', cors({
+  origin: 'https://gamers-ville.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 
 app.use(express.json());
 
