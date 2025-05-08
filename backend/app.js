@@ -38,10 +38,15 @@ async function connectToDatabase() {
     try {
         await con.connect();
         console.log("connected");
+        console.log(host);
+        console.log(user);
+        console.log(password);
+        console.log(database);
     } catch (err) {
         console.error("Connection failed", err);
     }
 }
+
 
 connectToDatabase();
 
