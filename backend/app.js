@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
-const port = 3000;
 const cors = require('cors');
+const port = process.env.PORT || 4000
 
 app.use(cors({
   origin: 'https://gamersville.onrender.com',
@@ -167,6 +167,10 @@ app.post('/loadinfpb1', (req, res) => {
 // })
 
 module.exports = app; 
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 
 
