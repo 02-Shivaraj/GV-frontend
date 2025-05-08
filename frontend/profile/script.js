@@ -2,7 +2,7 @@ var username;
 var name;
 
 async function infload(){
-    const response = await fetch('http://localhost:3000/loadinf', {
+    const response = await fetch('https://gamersville.onrender.com/loadinf', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ async function infload(){
 }
 
 async function infloadpb(){ 
-    const response = await fetch('/loadinfpb', {
+    const response = await fetch('https://gamersville.onrender.com/loadinfpb', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ async function infloadpb(){
 }
 
 async function infloadpb1(){
-    const response = await fetch('http://localhost:3000/loadinfpb1', {
+    const response = await fetch('https://gamersville.onrender.com/loadinfpb1', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
