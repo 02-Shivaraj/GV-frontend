@@ -2,8 +2,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-image: url(background1.gif);
-    /* text-align:center ; */
-    /* background-color: rgba(250, 124, 21, 0.443); */
 }
 
 img{
@@ -25,7 +23,6 @@ img{
     height: 65%;
     width: 22%;
     background-color: whitesmoke;
-    /* border-radius: 20px; */
     position: absolute;
     left:20%;
 }
@@ -37,21 +34,14 @@ img{
     color: aliceblue;
     font-size: 250px;
     text-align: center;
-    /* margin-left: 10px; */
     position: absolute;
 }
 
-/* #images{
-    height: 660px;
-    width: 50%;
-    background-color: aliceblue;
-} */
 #your-choice{
     top: 17.5%;
     height: 65%;
     width: 22%;
     background-color: whitesmoke;
-    /* border-radius: 20px; */
     left:55%;
     position: absolute;
 }
@@ -76,12 +66,10 @@ img{
     background-color: rgba(255, 255, 255, 0.212);
     padding-top: 0.9%;
     padding-left: 4.5%;
-    /* margin: 0 auto; */
 }
 
 #choices img{
     height: 80%;
-    /* margin-top: 10%; */
     width: 25%;
     padding: 1%;
     padding-right: 4%;
@@ -106,28 +94,23 @@ img{
     padding-top: 40px;
     text-align: center;
     box-shadow: 50px 50px 1000px rgb(255, 0, 225);
-    /* border: 1px solid black; */
 }
 #replay-exit{
     visibility: hidden;
     position: absolute;
     height: 10%;
     width: 40%;
-    /* background-color: white; */
-    /* color: rgba(0, 0, 0, 0); */
     top: 65%;
     left: 30%;
 
 }
 
 #replay{
-    /* visibility: hidden; */
     position: absolute;
     height: 90%;
     width: 49%;
     background-color: rgb(0, 0, 0);
     color: white;
-    /* color: rgba(0, 0, 0, 0); */
     top: 5%;
     left: 0.5%;
     text-align: center;
@@ -145,13 +128,11 @@ img{
     color: black;
 }
 #exit{
-    /* visibility: hidden; */
     position: absolute;
     height: 90%;
     width: 49%;
     background-color: rgb(0, 0, 0);
     color: white;
-    /* color: rgba(0, 0, 0, 0); */
     top: 5%;
     left: 50%;
     text-align: center;
@@ -165,6 +146,5 @@ h1{
     position: absolute;
     height: 100%;
     width: 100%;
-    /* background-color: aqua; */
     visibility: hidden;
 }
