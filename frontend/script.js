@@ -1,56 +1,39 @@
-var bgs = [
-    "bg1.gif",
-    "bg2.gif",
-    "bg3.gif",
-    "bg4.gif",
-    "bg5.gif",
-    "bg7.gif",
-    "bg8.gif",
-    "bg9.gif",
-    "bg10.gif",
-    "bg11.gif",
-    "bg12.gif",
-    "bg13.gif"
-];
+let game1 = document.getElementById("game1");
+let game2 = document.getElementById("game2");
+let game3 = document.getElementById("game3");
+let load = document.getElementById("loading");
 
-const bd = document.querySelector("body");
+game1.addEventListener("click",tictactoe);
 
-const sgn = document.getElementById("sgn");
-sgn.addEventListener("click", () =>{
-    window.location.replace("./res/signup/index.html")
+function tictactoe(){
+    load.style.visibility="visible";
+    load.style.zIndex=1;
+    setTimeout(function(){
+        window.location.href = "./TicTacToe/TicTacToe.html";
+    },0)
+}
+
+game2.addEventListener("click",rockpaper);
+
+function rockpaper(){
+    load.style.visibility="visible";
+    load.style.zIndex=1;
+    setTimeout(function(){
+        window.location.href = "./RockPaperScissor/RockPaperScissor.html";
+    },0)
+}
+
+game3.addEventListener("click",matchcards)
+function matchcards(){
+    load.style.visibility="visible";
+    load.style.zIndex=1;
+    setTimeout(function(){
+        window.location.href = "./Match_cards/cards.html";
+    },0)
+}
+
+var ico = document.getElementById("icon");
+ico.addEventListener("click",() =>{
+    window.location.assign("../profile/index.html");
 })
 
-function bgIter(){
-    let i = Math.floor(Math.random() * 11);
-    bd.style.backgroundImage = "url(inventory/"+bgs[i]+")";
-}
-
-bgIter();
-
-async function login(event) {
-
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const response = await fetch('https://gamersville.onrender.com/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    });
-      
-    const data = await response.json();
-
-    console.log(data.message)
-
-    if(data.message == 1){
-        console.log('authorized');
-        window.location.replace("./options/options.html");
-    }
-    else
-        alert("user not found");
-
-    
-}

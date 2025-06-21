@@ -1,37 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login page</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-    <div id="login-div">
-        <p id="title">GAMERSVILLE</p>
-        <form onsubmit="login(event)">
-            <div class="input-group">
-                <label for="username">Username:</label>
-                <input class="inp" type="text" id="username" name="username" required>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Choose your game</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="loading">
+            <h1>Loading...</h1>
+        </div>
+        <!-- <div id="welcome">
+            <h1>Let's Play and waste time</h1>
+        </div> -->
+        <div id="games">
+            <div id="game1" >
+                <img src="./options/tt.gif" height="100%" width="100%" alt="">
+                <div id="g1"><h1>Tic Tac Toe</h1></div>
             </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input class="inp" type="password" id="password" name="password" required>
+            <div id="game2">
+                <div id="g2"><h1>Rock Paper Scissor</h1></div>
             </div>
-            <div><button id="sub" type="submit">Login</button></div>
-        </form>
-        <div id="sgn"> <button id="signup">signup</button> </div>
-    </div>
-    <script src="script.js"></script>
-    <div style="background-color: brown;"></div>
-</body>
+            <div id="game3">
+                <img src="./options/cards2.gif" height="100%" width="100%" alt="">
+                <div id="g3"><h1>Match Cards</h1></div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
 </html>
