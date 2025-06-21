@@ -11,7 +11,7 @@ function validateForm() {
 
     if (player1 === '' || player2 === '') {
         alert('Please enter names for both players.');
-        return false; // Prevent form submission
+        return false; 
     }    username = req.body.username;
 
 
@@ -21,38 +21,6 @@ function validateForm() {
     setgame();
     return false;
 }
-// var okay = document.getElementById("submitbutton");
-// okay.addEventListener("click",function(event){
-//     event.preventDefault();
-//     checkname();
-//     // validnames();
-    
-// });
-
-/*function validnames(){
-    while(names[0] == null || names[1] == null || names[0] == "" || names[1] == ""){
-        c++;
-        if(c == 3){
-            let a = document.getElementById("details");
-            a.style.visibility = "hidden";
-            let bn = document.querySelector(".banned");
-            bn.style.visibility = "hidden";
-            document.querySelector("#board").style.visibility="collapse";
-            document.querySelector("body").style.backgroundColor="black";
-            document.querySelector("hr").style.visibility="collapse";
-
-            console.log(bn);
-            break;
-        }
-        checkname();
-    }
-}*/
-// if(c==2){
-//     var bn = document.getElementsByClassName("banned")[0];
-//     bn.style.visibility = "visible";
-//     console.log(bn);
-// }
-
 function checkname(){
     let person1 = document.getElementById("player1");
     names[0] = person1.value;
@@ -69,15 +37,8 @@ var player1 = 'X';
 var curplayer = player0;
 var gameover = false;
 
-// window.onload = function(){
-//     setTimeout(function(){
-//     validateForm();
-//     },0);
-// }
-// Using async/await to ensure async loading and improve performance
 window.onload = async function() {
     try {
-        // Simulate async loading or delay with a small timeout
         await new Promise(resolve => setTimeout(resolve, 0));
         
         setgame();
@@ -98,7 +59,6 @@ function setgame(){
 
     for(let r=0; r<3; r++){
         for(let c=0; c<3; c++){
-            //<div id = "0-0"></div>
             
             let tile = document.createElement("div");
             tile.id = r.toString()+"-"+c.toString();
@@ -125,7 +85,6 @@ function setTile(){
     var coord = this.id.split("-");
     let r = parseInt(coord[0]);
     let c = parseInt(coord[1]);
-    // console.log(coord);
     if(board[r][c]!=' '){
         return;
     }
@@ -237,7 +196,6 @@ function winner_name(){
     next();
     count--;
     return;
-    // console.log(banner);
 }
 
 function hide(){
