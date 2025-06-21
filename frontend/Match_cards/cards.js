@@ -16,7 +16,6 @@ abort.addEventListener("click",quitgame);
 
 window.onload = function(){
     shuffleCards();
-    // regulations();
     startGame();
 }
 
@@ -126,10 +125,7 @@ function win(){
     for(let r = 0; r<rows; r++){
         for(let c = 0; c<columns; c++){
             let a = document.getElementById(r.toString()+"-"+c.toString());
-            if(board[r][c] != c2[r][c]){
-                // let b = document.getElementById("winner-banner");
-                // b.innerHTML="YOU LOSE";
-                // b.style.visibility = "visible";            
+            if(board[r][c] != c2[r][c]){            
                 return;
             }
         }
