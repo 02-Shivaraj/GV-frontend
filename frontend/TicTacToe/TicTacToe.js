@@ -1,13 +1,13 @@
-var board;
-var names = ['',''];
+let board;
+let names = ['',''];
 
-var count = 0;
-var flag = 0;
+let count = 0;
+let flag = 0;
 
-var c = 0;
+let c = 0;
 function validateForm() {
-    var player1 = document.getElementById('player1').value.trim();
-    var player2 = document.getElementById('player2').value.trim();
+    let player1 = document.getElementById('player1').value.trim();
+    let player2 = document.getElementById('player2').value.trim();
 
     if (player1 === '' || player2 === '') {
         alert('Please enter names for both players.');
@@ -32,10 +32,10 @@ function checkname(){
 }
 
 
-var player0 = 'O';
-var player1 = 'X';
-var curplayer = player0;
-var gameover = false;
+let player0 = 'O';
+let player1 = 'X';
+let curplayer = player0;
+let gameover = false;
 
 window.onload = async function() {
     try {
@@ -82,7 +82,7 @@ function setTile(){
     if(gameover){
         return;
     }
-    var coord = this.id.split("-");
+    let coord = this.id.split("-");
     let r = parseInt(coord[0]);
     let c = parseInt(coord[1]);
     if(board[r][c]!=' '){
@@ -171,8 +171,6 @@ function checkwinner(){
 function winner_name(){
     let banner = document.getElementsByClassName("winner-banner")[0];
     let replay_quit = document.getElementById("replay-exit");
-    let replay = document.getElementById("replay");
-    let quit = document.getElementById("quit");
 
     if(flag==1){
         banner.innerText = " Match Tie ";
