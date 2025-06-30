@@ -1,14 +1,14 @@
-var errors = 0;
-var cardList = ["alpha","bat","black_goat","cat","grizzly","kingfisher","ouroboros","raven","undead_cat","wolf_cub"];
+let errors = 0;
+let cardList = ["alpha","bat","black_goat","cat","grizzly","kingfisher","ouroboros","raven","undead_cat","wolf_cub"];
 
-var c1 = [];
-var c2 = [];
-var cardSet;
-var board = [];
-var rows = 4;
-var columns = 5;
-var card1;
-var card2;
+let c1 = [];
+let c2 = [];
+let cardSet;
+let board = [];
+let rows = 4;
+let columns = 5;
+let card1;
+let card2;
 
 let abort = document.getElementById("abort");
 let replay_quit = document.getElementById("replay-exit");
