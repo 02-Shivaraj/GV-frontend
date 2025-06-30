@@ -32,7 +32,7 @@ function matchcards(){
     },0)
 }
 
-var ico = document.getElementById("icon");
+let ico = document.getElementById("icon");
 ico.addEventListener("click",() =>{
     window.location.assign("../profile/index.html");
 })
