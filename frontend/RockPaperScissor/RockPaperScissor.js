@@ -1,10 +1,10 @@
-var you;
-var yourScore = 0;
-var opponent;
-var opponentScore = 0;
-var Status;
+let you;
+let yourScore = 0;
+let opponent;
+let opponentScore = 0;
+let Status;
 const game = 'rpc';
-var choices = ["rock","paper","scissors"];
+let choices = ["rock","paper","scissors"];
 
 window.onload = function(){
     for(let i=0; i<3; i++){
@@ -60,8 +60,6 @@ function selectChoice(){
         a.style.visibility = "hidden";
 
         let replay_quit = document.getElementById("replay-exit");
-        let replay = document.getElementById("replay");
-        let quit = document.getElementById("quit");
 
 
         if(opponentScore == yourScore){
