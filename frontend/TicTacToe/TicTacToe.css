@@ -37,6 +37,8 @@ hr{
 h1{
     color: rgb(163, 0, 163);
     font-size: 50px;
+    margin-top: 3px ;
+    margin-bottom: 0;
 }
 #board{
     visibility: hidden;
@@ -139,10 +141,6 @@ h1{
     border-radius: 50px;
     text-align: center;
     box-shadow:  10px 10px 700px rgb(233, 122, 235);
-}
-h1{
-    margin-top: 3px ;
-    margin-bottom: 0;
 }
 
 .banned{
