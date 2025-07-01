@@ -1,114 +1,323 @@
-body{
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     background-image: url("background.gif");
-    background-size: cover ;
-    color:wheat
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: wheat;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
-#abort{
-    width: 10%;
-    height: 5%;
-    position: absolute;
+
+/* Abort button */
+#abort {
+    width: clamp(80px, 12vw, 120px);
+    height: clamp(40px, 6vh, 60px);
+    position: fixed;
     top: 3%;
     left: 3%;
     text-align: center;
     background-color: rgba(5, 7, 8, 0.922);
     border-radius: 50px;
     border: 2px rgb(235, 233, 123) solid;
-    
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    z-index: 100;
 }
-#abort:hover{
+
+#abort:hover {
     box-shadow: 5px 5px 100px rgb(248, 235, 96);
 }
-#abort h1{
-    margin-top: 1%;
-    margin-bottom: 0;
-    font-size: 180%;
+
+#abort h1 {
+    margin: 0;
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    line-height: 1;
+    padding: 8px 0;
 }
 
-#board{
-    height: 552px;
-    width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+/* Moves counter */
+#moves-counter {
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    background-color: rgba(5, 7, 8, 0.922);
+    border-radius: 25px;
+    padding: 8px 16px;
+    border: 2px rgb(235, 233, 123) solid;
+    z-index: 100;
+}
+
+#moves-counter h2 {
+    margin: 0;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+}
+
+/* Game board */
+#board {
+    height: auto;
+    max-width: 90vw;
+    width: clamp(320px, 80vw, 500px);
+    margin: 10vh auto 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: clamp(3px, 1vw, 8px);
     background-color: black;
-    border: 10px solid rgb(9, 7, 3);
+    border: clamp(5px, 1.5vw, 10px) solid rgb(9, 7, 3);
     box-shadow: 5px 5px 100px rgb(221, 135, 54);
+    border-radius: 15px;
+    padding: clamp(8px, 2vw, 15px);
+    aspect-ratio: 5/4;
 }
-.card{
-    height: 128px;
-    width: 90px;
-    margin: 5px;
+
+/* Cards */
+.card {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    object-fit: cover;
 }
-.card:hover{
-    box-shadow: 5px 5px 100px rgb(201, 197, 193);
+
+.card:hover {
+    box-shadow: 5px 5px 50px rgb(201, 197, 193);
+    transform: scale(1.05);
 }
-#winner-banner{
-    z-index: 1;
+
+/* Winner banner */
+#winner-banner {
+    z-index: 1000;
     visibility: hidden;
-    position: absolute;
-    height: 19%;
-    width: 40%;
-    top: 30%;
-    left: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(280px, 80vw, 400px);
+    height: auto;
     border-radius: 30px;
-    font-size:80px;
+    font-size: clamp(2rem, 6vw, 4rem);
     color: white;
-    background-color: rgba(17, 8, 8, 0.543);
-    padding-top: 40px;
+    background-color: rgba(17, 8, 8, 0.9);
+    padding: clamp(20px, 5vw, 40px);
     text-align: center;
-    box-shadow: 50px 50px 1000px rgb(241, 164, 101);
+    box-shadow: 0 0 100px rgb(241, 164, 101);
 }
-#win{
-    font-size: 400%;
-    margin-top: 17%;
-    margin-bottom: 0;
+
+#win {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin: 0;
+    line-height: 1.2;
 }
-#replay-exit{
+
+/* Replay and Exit buttons */
+#replay-exit {
     visibility: hidden;
-    position: absolute;
-    height: 10%;
-    width: 45%;
-    /* background-color: white; */
-    color: rgba(0, 0, 0, 0);
-    top: 65%;
-    left: 27.5%;
-
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(280px, 80vw, 450px);
+    height: clamp(60px, 10vh, 80px);
+    display: flex;
+    gap: 2%;
+    z-index: 1001;
 }
-#replay{
-    position: absolute;
-    height: 90%;
-    width: 49%;
+
+#replay,
+#exit {
+    flex: 1;
     background-color: black;
-    top:5%;
-    left: 0.5%;
     border-radius: 50px;
     text-align: center;
     color: aliceblue;
-    box-shadow:  10px 10px 700px rgb(233, 122, 235);
+    box-shadow: 10px 10px 50px rgb(233, 122, 235);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-}
-#replay:hover{
+#replay:hover,
+#exit:hover {
     box-shadow: 5px 5px 100px rgb(231, 213, 232);
+    transform: translateY(-2px);
 }
 
-#exit:hover{
-    box-shadow: 5px 5px 100px rgb(231, 213, 232);
+#replay h1,
+#exit h1 {
+    margin: 0;
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
-#exit{
-    position: absolute;
-    height: 90%;
-    width: 49%;
-    background-color: black;
-    top: 5%;
-    left: 50.5%;
-    color: aliceblue;
-    border-radius: 50px;
-    text-align: center;
-    box-shadow:  10px 10px 700px rgb(233, 122, 235);
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    #board {
+        margin: 12vh auto 20px;
+        max-width: 85vw;
+    }
+    
+    #moves-counter {
+        top: 2%;
+        right: 2%;
+        padding: 6px 12px;
+    }
+    
+    #abort {
+        top: 2%;
+        left: 2%;
+    }
 }
-h1{
-    margin-top: 3.5% ;
-    margin-bottom: 0;
+
+/* Mobile landscape */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    #board {
+        margin: 8vh auto 10px;
+        width: clamp(300px, 85vw, 600px);
+        max-height: 70vh;
+    }
+    
+    #moves-counter,
+    #abort {
+        top: 1%;
+        font-size: 0.8rem;
+    }
+    
+    #replay-exit {
+        bottom: 5%;
+        height: clamp(50px, 8vh, 60px);
+    }
+    
+    #winner-banner {
+        width: clamp(250px, 70vw, 350px);
+        padding: clamp(15px, 3vw, 25px);
+    }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    #board {
+        margin: 15vh auto 20px;
+        width: clamp(280px, 90vw, 400px);
+        gap: clamp(2px, 0.8vw, 5px);
+        padding: clamp(5px, 1.5vw, 10px);
+    }
+    
+    #moves-counter {
+        position: static;
+        margin: 10px auto 0;
+        display: inline-block;
+        top: auto;
+        right: auto;
+    }
+    
+    #abort {
+        top: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(100px, 25vw, 140px);
+    }
+    
+    #winner-banner {
+        width: clamp(260px, 85vw, 350px);
+        padding: clamp(20px, 4vw, 30px);
+    }
+    
+    #replay-exit {
+        bottom: 10%;
+        width: clamp(260px, 85vw, 350px);
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    #board {
+        width: clamp(260px, 95vw, 320px);
+        margin: 12vh auto 15px;
+        border-width: clamp(3px, 1vw, 6px);
+        border-radius: 10px;
+    }
+    
+    .card {
+        border-radius: 5px;
+    }
+    
+    #abort {
+        width: clamp(80px, 20vw, 100px);
+        height: clamp(35px, 5vh, 45px);
+    }
+    
+    #abort h1 {
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        padding: 5px 0;
+    }
+    
+    #winner-banner {
+        width: clamp(240px, 90vw, 280px);
+        border-radius: 20px;
+        padding: clamp(15px, 3vw, 20px);
+    }
+    
+    #replay-exit {
+        width: clamp(240px, 90vw, 280px);
+        height: clamp(50px, 8vh, 60px);
+        gap: 3%;
+    }
+    
+    #replay,
+    #exit {
+        border-radius: 25px;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 320px) {
+    #board {
+        width: 95vw;
+        margin: 10vh auto 10px;
+        gap: 2px;
+        padding: 5px;
+    }
+    
+    #moves-counter {
+        padding: 4px 8px;
+        border-radius: 15px;
+    }
+    
+    #moves-counter h2 {
+        font-size: 0.8rem;
+    }
+    
+    #winner-banner {
+        width: 90vw;
+        padding: 15px;
+    }
+    
+    #replay-exit {
+        width: 90vw;
+        height: 50px;
+    }
+    
+    #replay h1,
+    #exit h1 {
+        font-size: 0.9rem;
+    }
 }
