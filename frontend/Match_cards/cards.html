@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title>Match cards</title>
         <link rel="stylesheet" href="cards.css">
     </head>
@@ -16,8 +16,11 @@
                 <h1>QUIT</h1>
             </div>
         </div>
-        <h2>Moves:<span id="errors">0</span></h2>
+        <div id="moves-counter">
+            <h2>Moves: <span id="errors">0</span></h2>
+        </div>
         <div id="board">
+            <!-- Cards will be generated dynamically by JavaScript -->
         </div>
         <div id="winner-banner"></div>
         <script src="cards.js"></script>
