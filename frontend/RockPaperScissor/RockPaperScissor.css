@@ -1,150 +1,450 @@
-body{
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    padding: 0;
     background-image: url(background1.gif);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-img{
-    border-radius: 100%;
+img {
+    border-radius: 50%;
 }
 
-#game{
+/* Game container */
+#game {
     position: absolute;
-    margin-top: 5%;
+    top: 5%;
     width: 90%;
     left: 5%;
     border-radius: 50px;
-    height:65% ;
+    height: 65%;
     background-color: rgba(255, 255, 255, 0.212);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+    backdrop-filter: blur(5px);
 }
 
-#opponent-choice{
-    top:17.5%;
-    height: 65%;
-    width: 22%;
+/* Player sections */
+.player-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    position: relative;
+}
+
+.opponent-section {
+    order: 1;
+}
+
+.your-section {
+    order: 3;
+}
+
+/* VS divider */
+.vs-divider {
+    order: 2;
+    font-size: clamp(2rem, 8vw, 6rem);
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Choice images */
+#opponent-choice,
+#your-choice {
+    width: clamp(80px, 15vw, 200px);
+    height: clamp(80px, 15vw, 200px);
     background-color: whitesmoke;
-    position: absolute;
-    left:20%;
+    object-fit: cover;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
 }
 
-#opponent-score{
-    top:17.5%;
-    height: 65%;
-    width: 20%;
+#opponent-choice:hover,
+#your-choice:hover {
+    transform: scale(1.05);
+}
+
+/* Scores */
+.score {
     color: aliceblue;
-    font-size: 250px;
+    font-size: clamp(2rem, 8vw, 6rem);
     text-align: center;
-    position: absolute;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 10px 0;
 }
 
-#your-choice{
-    top: 17.5%;
-    height: 65%;
-    width: 22%;
-    background-color: whitesmoke;
-    left:55%;
-    position: absolute;
+/* Player labels */
+.player-label {
+    color: white;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    margin-top: 10px;
 }
 
-#your-score{
-    top: 17.5%;
-    height: 65%;
-    width: 20%;
-    color: aliceblue;
-    font-size: 250px;
-    text-align: center;
-    left:77%;
+/* Choices container */
+#choices {
+    width: clamp(280px, 70vw, 500px);
+    height: clamp(80px, 15vh, 120px);
     position: absolute;
-}
-#choices{
-    width: 30%;
-    height: 17%;
-    position: absolute;
-    left: 32%;
-    top:80%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 75%;
     border-radius: 70px;
     background-color: rgba(255, 255, 255, 0.212);
-    padding-top: 0.9%;
-    padding-left: 4.5%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1% 3%;
 }
 
-#choices img{
-    height: 80%;
-    width: 25%;
-    padding: 1%;
-    padding-right: 4%;
+#choices img {
+    height: clamp(60px, 10vh, 100px);
+    width: clamp(60px, 10vh, 100px);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
 }
 
-#choices img:hover{
-    transition-duration: 0ms;
+#choices img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
 }
 
-#winner-banner{
-    z-index: 1;
+#choices img:active {
+    transform: scale(0.95);
+}
+
+/* Winner banner */
+#winner-banner {
+    z-index: 1000;
     visibility: hidden;
-    position: absolute;
-    height: 19%;
-    width: 40%;
-    top: 30%;
-    left: 30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(280px, 80vw, 400px);
+    height: auto;
     border-radius: 30px;
-    font-size:80px;
+    font-size: clamp(2rem, 6vw, 4rem);
     color: white;
     background-color: rgba(255, 255, 255, 0.365);
-    padding-top: 40px;
+    backdrop-filter: blur(10px);
+    padding: clamp(20px, 5vw, 40px);
     text-align: center;
-    box-shadow: 50px 50px 1000px rgb(255, 0, 225);
+    box-shadow: 0 0 100px rgb(255, 0, 225);
 }
-#replay-exit{
+
+/* Replay and Exit buttons */
+#replay-exit {
     visibility: hidden;
-    position: absolute;
-    height: 10%;
-    width: 40%;
-    top: 65%;
-    left: 30%;
-
-}
-
-#replay{
-    position: absolute;
-    height: 90%;
-    width: 49%;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    top: 5%;
-    left: 0.5%;
-    text-align: center;
-    border-radius: 50px;
-}
-
-#replay:hover{
-    background-color: whitesmoke;
-    box-shadow: 50px 50px 1000px rgb(255, 0, 225);
-    color: black;
-}
-#exit:hover{
-    background-color: whitesmoke;
-    box-shadow: 50px 50px 1000px rgb(255, 0, 225);
-    color: black;
-}
-#exit{
-    position: absolute;
-    height: 90%;
-    width: 49%;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    top: 5%;
+    position: fixed;
+    bottom: 15%;
     left: 50%;
+    transform: translateX(-50%);
+    width: clamp(280px, 70vw, 400px);
+    height: clamp(60px, 10vh, 80px);
+    display: flex;
+    gap: 2%;
+    z-index: 1001;
+}
+
+#replay,
+#exit {
+    flex: 1;
+    background-color: rgb(0, 0, 0);
+    color: white;
     text-align: center;
     border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-h1{
-    margin-top: 4.5%;
-    margin-bottom: 0;
+
+#replay:hover,
+#exit:hover {
+    background-color: whitesmoke;
+    box-shadow: 0 0 50px rgb(255, 0, 225);
+    color: black;
+    transform: translateY(-2px);
 }
-#banner-behind{
+
+#replay h1,
+#exit h1 {
+    margin: 0;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Banner behind */
+#banner-behind {
     position: absolute;
     height: 100%;
     width: 100%;
     visibility: hidden;
+    z-index: -1;
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    #game {
+        top: 3%;
+        height: 70%;
+        padding: 1.5%;
+    }
+    
+    #choices {
+        top: 78%;
+        width: clamp(260px, 75vw, 450px);
+    }
+}
+
+/* Mobile landscape */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    #game {
+        top: 2%;
+        height: 65%;
+        flex-direction: row;
+        padding: 1%;
+    }
+    
+    .vs-divider {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+    
+    .score {
+        font-size: clamp(1.5rem, 6vw, 4rem);
+    }
+    
+    #opponent-choice,
+    #your-choice {
+        width: clamp(60px, 12vw, 120px);
+        height: clamp(60px, 12vw, 120px);
+    }
+    
+    #choices {
+        top: 70%;
+        height: clamp(60px, 12vh, 80px);
+        width: clamp(240px, 80vw, 400px);
+    }
+    
+    #choices img {
+        height: clamp(45px, 8vh, 65px);
+        width: clamp(45px, 8vh, 65px);
+    }
+    
+    #winner-banner {
+        width: clamp(240px, 70vw, 320px);
+        padding: clamp(15px, 3vw, 25px);
+    }
+    
+    #replay-exit {
+        bottom: 8%;
+        width: clamp(240px, 70vw, 320px);
+        height: clamp(50px, 8vh, 60px);
+    }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        background-attachment: scroll;
+    }
+    
+    #game {
+        top: 5%;
+        height: 60%;
+        flex-direction: column;
+        padding: 2%;
+    }
+    
+    .player-section {
+        width: 100%;
+        height: 40%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .opponent-section {
+        order: 1;
+    }
+    
+    .your-section {
+        order: 3;
+        flex-direction: row-reverse;
+    }
+    
+    .vs-divider {
+        order: 2;
+        height: 20%;
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+    
+    .score {
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin: 0;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #opponent-choice,
+    #your-choice {
+        width: clamp(80px, 15vw, 120px);
+        height: clamp(80px, 15vw, 120px);
+        margin: 0;
+    }
+    
+    .player-label {
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    }
+    
+    #choices {
+        top: 70%;
+        width: clamp(260px, 85vw, 350px);
+        height: clamp(70px, 12vh, 90px);
+    }
+    
+    #choices img {
+        height: clamp(55px, 9vh, 75px);
+        width: clamp(55px, 9vh, 75px);
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    #game {
+        border-radius: 30px;
+        top: 3%;
+        height: 65%;
+    }
+    
+    .player-section {
+        position: relative;
+    }
+    
+    .player-label {
+        bottom: -20px;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+    
+    #choices {
+        top: 72%;
+        width: clamp(240px, 90vw, 300px);
+        height: clamp(65px, 10vh, 80px);
+        border-radius: 40px;
+        padding: 1% 2%;
+    }
+    
+    #choices img {
+        height: clamp(50px, 8vh, 65px);
+        width: clamp(50px, 8vh, 65px);
+        padding: 3px;
+    }
+    
+    #winner-banner {
+        width: clamp(220px, 85vw, 280px);
+        border-radius: 20px;
+        padding: clamp(15px, 4vw, 25px);
+    }
+    
+    #replay-exit {
+        width: clamp(220px, 85vw, 280px);
+        height: clamp(50px, 8vh, 60px);
+        bottom: 10%;
+    }
+    
+    #replay,
+    #exit {
+        border-radius: 25px;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 320px) {
+    #game {
+        width: 95%;
+        left: 2.5%;
+        top: 2%;
+        height: 70%;
+        border-radius: 25px;
+    }
+    
+    .vs-divider {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+    }
+    
+    .score {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+    
+    #opponent-choice,
+    #your-choice {
+        width: clamp(60px, 12vw, 80px);
+        height: clamp(60px, 12vw, 80px);
+    }
+    
+    #choices {
+        width: 90vw;
+        height: clamp(60px, 9vh, 70px);
+        top: 75%;
+        border-radius: 30px;
+    }
+    
+    #choices img {
+        height: clamp(45px, 7vh, 55px);
+        width: clamp(45px, 7vh, 55px);
+    }
+    
+    .player-label {
+        font-size: 0.7rem;
+        bottom: -15px;
+    }
+    
+    #winner-banner {
+        width: 90vw;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    #replay-exit {
+        width: 90vw;
+        height: 45px;
+    }
+    
+    #replay h1,
+    #exit h1 {
+        font-size: 0.9rem;
+    }
 }
