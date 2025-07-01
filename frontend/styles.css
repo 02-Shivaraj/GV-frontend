@@ -1,140 +1,259 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
 
-#loading{
-    position: absolute;
-    visibility: hidden;
-    height: 20%;
-    width: 35%;
-    top: 40%;
-    left: 32.5%;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 190%;
-    border-radius: 50px;
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
 }
-#loading{
-    h1{
-        margin-bottom: 0;
-        margin-top: 6%;
-    }
-}
-h1{
+
+h1 {
     margin-bottom: 0;
     margin-top: 2%;
 }
-#games{
-    position: absolute;
-    top: 20%;
-    height: 60%;
+
+/* Loading styles */
+#loading {
+    position: fixed;
+    visibility: hidden;
+    height: 20%;
     width: 90%;
-    left: 5%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#loading h1 {
+    margin: 0;
+}
+
+/* Games container */
+#games {
+    position: absolute;
+    top: 10%;
+    height: 80%;
+    width: 95%;
+    left: 2.5%;
     background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    align-items: center;
+    justify-content: center;
 }
-#game1{
-    position: absolute;
-    top: 2%;
-    height: 96%;
-    width: 31%;
-    left: 34.5%;
+
+/* Game cards base styles */
+.game-card {
+    position: relative;
+    height: 90%;
+    width: 30%;
+    min-width: 280px;
     border-radius: 50px;
     background-color: white;
-    img{
-        border-radius: 50px;
-    }
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
-#g1{
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-card img {
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+/* Game titles */
+.game-title {
     visibility: hidden;
     position: absolute;
-    top: 80%;
+    bottom: 0;
     left: 0;
     height: 20%;
     width: 100%;
     text-align: center;
-    font-size: 140%;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
     font-family: monospace;
     background-color: rgba(0, 0, 0, 0.694);
+    border-radius: 0 0px 50px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: visibility 0.3s ease;
+}
+
+.game-title h1 {
+    margin: 0;
+    font-size: inherit;
+}
+
+.game-card:hover .game-title {
+    visibility: visible;
+}
+
+/* Individual game styles */
+#game1 .game-title {
     color: wheat;
-    border-radius: 0 0px 50px 50px;
 }
 
-#game1:hover{
-    #g1{
-        visibility: visible;
-    }
+#game2 {
+    background-image: url('./options/rps.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-#game2{
-    position: absolute;
-    top: 2%;
-    height: 96%;
-    width: 31%;
-    left: 1.5%;
-    background-color: white;
-    background-image:  url('./options/rps.gif');
-    border-radius: 50px;
-}
-#g2{
-    visibility: hidden;
-    position: absolute;
-    top: 80%;
-    left: 0;
-    height: 20%;
-    width: 100%;
-    text-align: center;
-    font-size: 140%;
-    font-family: monospace;
-    background-color: rgba(0, 0, 0, 0.694);
+#game2 .game-title {
     color: rgb(224, 88, 88);
-    border-radius: 0 0px 50px 50px;
 }
-#game2:hover{
-    #g2{
-        visibility: visible;
-    }
-}
-#game3{
-    position: absolute;
-    top: 2%;
-    height: 96%;
-    width: 31%;
-    left: 67.5%;
-    background-color: white;
-    border-radius: 50px;
-}
-#game3 img{
-    border-radius: 50px 50px 50px 50px;
 
-}
-#g3{
-    visibility: hidden;
-    position: absolute;
-    top: 80%;
-    left: 0;
-    height: 20%;
-    width: 100%;
-    text-align: center;
-    font-size: 140%;
-    background-color: rgba(0, 0, 0, 0.694);
+#game3 .game-title {
     color: rgb(237, 207, 98);
-    font-family: monospace;
-    border-radius: 0 0px 50px 50px;
-}
-#game3:hover{
-    #g3{
-        visibility: visible;
-    }
 }
 
-#icon{
+/* Icon styles (if needed) */
+#icon {
     position: absolute;
     height: 70px;
     width: 70px;
     border-radius: 100px;
     top: 2%;
-    left: 95%;
+    right: 2%;
     background-color: black;
 }
 
-#icon img{
+#icon img {
     border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tablet styles */
+@media screen and (max-width: 1024px) {
+    #games {
+        top: 5%;
+        height: 90%;
+        width: 98%;
+        left: 1%;
+        gap: 1.5%;
+    }
+    
+    .game-card {
+        min-width: 250px;
+        width: 32%;
+    }
+    
+    .game-title {
+        font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+    }
+}
+
+/* Mobile landscape */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    #games {
+        flex-direction: row;
+        gap: 1%;
+        top: 2%;
+        height: 96%;
+    }
+    
+    .game-card {
+        width: 32%;
+        min-width: 200px;
+        height: 85%;
+    }
+    
+    .game-title {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        height: 25%;
+    }
+}
+
+/* Mobile portrait */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #games {
+        flex-direction: column;
+        gap: 3%;
+        top: 5%;
+        height: 90%;
+        width: 90%;
+        left: 5%;
+    }
+    
+    .game-card {
+        width: 100%;
+        height: 30%;
+        min-width: auto;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .game-title {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        height: 25%;
+    }
+    
+    #loading {
+        width: 80%;
+        height: 15%;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .game-card {
+        border-radius: 30px;
+    }
+    
+    .game-card img {
+        border-radius: 30px;
+    }
+    
+    .game-title {
+        border-radius: 0 0px 30px 30px;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    }
+    
+    #loading {
+        border-radius: 30px;
+        width: 85%;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 320px) {
+    #games {
+        gap: 2%;
+    }
+    
+    .game-card {
+        height: 28%;
+        border-radius: 25px;
+    }
+    
+    .game-card img {
+        border-radius: 25px;
+    }
+    
+    .game-title {
+        border-radius: 0 0px 25px 25px;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        height: 30%;
+    }
 }
