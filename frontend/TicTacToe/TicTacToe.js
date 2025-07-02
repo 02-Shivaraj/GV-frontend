@@ -188,7 +188,7 @@ function winner_name(){
     }
     console.log(names);
     console.log(name);
-    banner.innerText = name + " wins !!!  ";
+    banner.innerText = name + " Great Game";
     banner.style.visibility="visible";
     replay_quit.style.visibility="visible";
     next();
