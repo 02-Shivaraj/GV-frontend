@@ -1,32 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <title>Choose your game</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div id="loading">
-            <h1>Loading...</h1>
-        </div>
-        <!-- <div id="welcome">
-            <h1>Let's Play and waste time</h1>
-        </div> -->
-        <div id="games">
-            <div id="game1" class="game-card">
-                <img src="./options/tt.gif" height="100%" width="100%" alt="Tic Tac Toe">
-                <div id="g1" class="game-title"><h1>Tic Tac Toe</h1></div>
-            </div>
-            <div id="game2" class="game-card">
-                <div id="g2" class="game-title"><h1>Rock Paper Scissor</h1></div>
-            </div>
-            <div id="game3" class="game-card">
-                <img src="./options/cards2.gif" height="100%" width="100%" alt="Match Cards">
-                <div id="g3" class="game-title"><h1>Match Cards</h1></div>
-            </div>
-        </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamersVille</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
+    <!-- Main Content -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">GamersVille</h1>
+                <p class="hero-description">
+                    Tiny games, big entertainment—whenever you need a break.
+                </p>
+                
+                <button class="btn-primary" id="startPlayingBtn">
+                    <span class="btn-text">Start Playing</span>
+                </button>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="game-controller">
+                    <div class="controller-body">
+                        <div class="d-pad">
+                            <div class="d-pad-btn up"></div>
+                            <div class="d-pad-btn down"></div>
+                            <div class="d-pad-btn left"></div>
+                            <div class="d-pad-btn right"></div>
+                        </div>
+                        <div class="action-buttons">
+                            <div class="action-btn btn-a"></div>
+                            <div class="action-btn btn-b"></div>
+                            <div class="action-btn btn-x"></div>
+                            <div class="action-btn btn-y"></div>
+                        </div>
+                        <div class="controller-center">
+                            <div class="power-light"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
