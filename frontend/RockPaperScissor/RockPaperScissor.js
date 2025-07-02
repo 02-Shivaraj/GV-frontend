@@ -93,7 +93,7 @@ function selectChoice(){
             let behind = document.getElementById("banner-behind");
             behind.style.visibility = "visible";
             let banner = document.getElementById("winner-banner");
-            banner.innerHTML = "You Win!!!";
+            banner.innerHTML = "Great Match";
             banner.style.visibility = "visible";
             banner.style.visibility = "visible";
             replay_quit.style.visibility = "visible";
