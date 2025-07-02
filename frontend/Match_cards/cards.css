@@ -208,32 +208,45 @@ body {
     }
 }
 
-/* Mobile portrait */
+/* Mobile portrait - FIXED VERSION */
 @media screen and (max-width: 768px) and (orientation: portrait) {
     body {
         background-attachment: scroll;
     }
     
     #board {
-        margin: 15vh auto 20px;
+        margin: 18vh auto 20px; /* Increased top margin to accommodate both buttons */
         width: clamp(280px, 90vw, 400px);
         gap: clamp(2px, 0.8vw, 5px);
         padding: clamp(5px, 1.5vw, 10px);
     }
     
+    /* Keep moves counter at top right */
     #moves-counter {
-        position: static;
-        margin: 10px auto 0;
-        display: inline-block;
-        top: auto;
-        right: auto;
+        position: fixed;
+        top: 2%;
+        right: 2%;
+        padding: 6px 12px;
+        z-index: 100;
     }
     
+    /* Keep abort button at top left */
     #abort {
+        position: fixed;
         top: 2%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: clamp(100px, 25vw, 140px);
+        left: 2%;
+        width: clamp(80px, 20vw, 120px);
+        height: clamp(35px, 5vh, 50px);
+        z-index: 100;
+    }
+    
+    #abort h1 {
+        font-size: clamp(0.7rem, 2.2vw, 1rem);
+        padding: 5px 0;
+    }
+    
+    #moves-counter h2 {
+        font-size: clamp(0.8rem, 2.2vw, 1.1rem);
     }
     
     #winner-banner {
@@ -251,7 +264,7 @@ body {
 @media screen and (max-width: 480px) {
     #board {
         width: clamp(260px, 95vw, 320px);
-        margin: 12vh auto 15px;
+        margin: 16vh auto 15px; /* Adjusted margin for small screens */
         border-width: clamp(3px, 1vw, 6px);
         border-radius: 10px;
     }
@@ -261,13 +274,26 @@ body {
     }
     
     #abort {
-        width: clamp(80px, 20vw, 100px);
-        height: clamp(35px, 5vh, 45px);
+        width: clamp(70px, 18vw, 90px);
+        height: clamp(32px, 4.5vh, 42px);
+        top: 1.5%;
+        left: 1.5%;
     }
     
     #abort h1 {
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        padding: 4px 0;
+    }
+    
+    #moves-counter {
+        top: 1.5%;
+        right: 1.5%;
+        padding: 4px 8px;
+        border-radius: 15px;
+    }
+    
+    #moves-counter h2 {
         font-size: clamp(0.7rem, 2vw, 0.9rem);
-        padding: 5px 0;
     }
     
     #winner-banner {
@@ -292,18 +318,32 @@ body {
 @media screen and (max-width: 320px) {
     #board {
         width: 95vw;
-        margin: 10vh auto 10px;
+        margin: 14vh auto 10px; /* Adjusted for very small screens */
         gap: 2px;
         padding: 5px;
     }
     
+    #abort {
+        width: 60px;
+        height: 30px;
+        top: 1%;
+        left: 1%;
+    }
+    
+    #abort h1 {
+        font-size: 0.6rem;
+        padding: 3px 0;
+    }
+    
     #moves-counter {
-        padding: 4px 8px;
-        border-radius: 15px;
+        top: 1%;
+        right: 1%;
+        padding: 3px 6px;
+        border-radius: 12px;
     }
     
     #moves-counter h2 {
-        font-size: 0.8rem;
+        font-size: 0.65rem;
     }
     
     #winner-banner {
@@ -318,6 +358,6 @@ body {
     
     #replay h1,
     #exit h1 {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
